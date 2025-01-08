@@ -1,4 +1,3 @@
-"use client";
 import NavbarCategory from "@/components/navbar-category";
 import Products from "@/components/products";
 

@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 import photo from "@/assets/photo-1512917774080-9991f1c4c750.avif";
