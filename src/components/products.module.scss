@@ -1,0 +1,21 @@
+.container {
+  width: 100%;
+  margin: 0 auto;
+  @apply px-14;
+}
+
+.products {
+  @apply grid grid-cols-4 gap-6;
+}
+
+@media (min-width: 1380px) {
+  .container {
+    @apply px-20;
+  }
+}
+
+@media (min-width: 1580px) {
+  .products {
+    @apply grid-cols-6;
+  }
+}

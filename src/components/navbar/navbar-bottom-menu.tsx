@@ -1,12 +1,12 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { useEffect, useRef, useState } from "react";
-import styles from "./navbar-category-list.module.css";
+import styles from "./navbar-bottom-menu.module.scss";
 import { categories } from "@/constants";
 import { iconMapping } from "@/constants/icon-mapping";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const NavbarCategoryList = () => {
+export default function NavbarBottomMenu() {
   const router = useRouter();
   const params = useSearchParams();
 
@@ -67,7 +67,7 @@ const NavbarCategoryList = () => {
   };
 
   return (
-    <div className="flex items-center w-full relative">
+    <div className="w-fit relative">
       <div ref={categoriesRef} className={styles.categories}>
         {categories.map((category, index) => {
           const Icon = iconMapping[category.icon];
@@ -120,6 +120,4 @@ const NavbarCategoryList = () => {
       )}
     </div>
   );
-};
-
-export default NavbarCategoryList;
+}

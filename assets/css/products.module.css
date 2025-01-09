@@ -1,16 +1,19 @@
 .container {
-  max-width: 1380px;
+  width: 100%;
   margin: 0 auto;
+  @apply px-14;
 }
 
 .products {
   @apply grid grid-cols-4 gap-6;
 }
 
-@media (min-width: 1580px) {
+@media (min-width: 1380px) {
   .container {
-    max-width: calc(100% - 8rem);
+    @apply px-20;
   }
+}
+@media (min-width: 1580px) {
   .products {
     @apply grid-cols-6;
   }

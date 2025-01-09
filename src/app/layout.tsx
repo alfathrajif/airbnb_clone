@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "@/components/header-v2";
 import Footer from "@/components/footer";
 import { Raleway } from "next/font/google";
+import styles from "./app.module.scss";
 
 export const metadata: Metadata = {
   title: "Airbnb Clone | Vacation rentals, cabins, beach houses & more",
@@ -19,10 +19,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={raleway.className}>
       <body>
-        <Header />
-        {/* <Header /> */}
-        {children}
-        <Footer />
+        <div className={styles.container}>
+          {/* <Header /> */}
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );

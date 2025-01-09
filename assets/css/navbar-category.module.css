@@ -1,0 +1,21 @@
+.container {
+  width: 100%;
+  @apply px-14 relative flex justify-between items-center h-full w-full gap-x-6;
+}
+
+@media (min-width: 1380px) {
+  .container {
+    @apply px-20;
+  }
+}
+.categories {
+  @apply sticky overflow-hidden bg-background;
+  padding-top: 12px;
+  margin-bottom: 12px;
+  top: 168px;
+}
+.categories.scrolled {
+  top: 80px;
+  padding-top: 5px;
+  margin-bottom: 25px;
+}

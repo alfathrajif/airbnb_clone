@@ -1,0 +1,31 @@
+.navbar {
+  @apply fixed top-0 w-full bg-background z-20;
+}
+.navbar__header {
+  height: 168px;
+  @apply border-b transition-all ease-in duration-300;
+}
+.navbar__header__scrolled {
+  height: 80px;
+  @apply border-b transition-all ease-out duration-300;
+}
+.navbar__category {
+  min-height: 80px;
+}
+
+.container {
+  max-width: 1380px;
+  margin: 0 auto;
+}
+
+@media (min-width: 1380px) {
+  .container {
+    @apply px-4;
+  }
+}
+@media (min-width: 1580px) {
+  .container {
+    max-width: calc(100% - 8rem);
+    @apply px-6;
+  }
+}
