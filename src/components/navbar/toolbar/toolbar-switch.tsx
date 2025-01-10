@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button } from "../ui/button";
+import { Button } from "../../ui/button";
 import styles from "./toolbar-switch.module.scss";
 import { Check } from "lucide-react";
 

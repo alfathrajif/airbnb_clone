@@ -5,9 +5,9 @@ interface NavigateStoreState {
   setIsScrolled: (isScrolled: number) => void;
 }
 
-const useNavigateStore = create<NavigateStoreState>((set) => ({
+const useNavbarStore = create<NavigateStoreState>((set) => ({
   isScrolled: 0,
   setIsScrolled: (isScrolled: number) => set({ isScrolled }),
 }));
 
-export default useNavigateStore;
+export default useNavbarStore;

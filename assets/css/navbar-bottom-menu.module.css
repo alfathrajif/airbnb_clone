@@ -1,6 +1,6 @@
 .categories {
   @apply flex items-center overflow-x-auto gap-x-9;
-  width: calc(100vw - 513px);
+  width: calc(100vw - 528px);
 }
 .categories::-webkit-scrollbar {
   @apply hidden;
@@ -37,6 +37,6 @@
 
 @media (min-width: 1380px) {
   .categories {
-    width: calc(100vw - 560px);
+    width: calc(100vw - 578px);
   }
 }

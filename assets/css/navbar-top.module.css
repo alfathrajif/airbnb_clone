@@ -1,7 +1,7 @@
 .header {
   @apply sticky top-0 z-50 w-full bg-background border-b transition-all duration-300;
   height: 168px;
-  &.scrolled {
-    height: 80px;
-  }
+}
+.header.scrolled {
+  height: 80px;
 }

@@ -1,10 +1,10 @@
 "use client";
-import useNavigateStore from "@/hooks/useNavigateStore";
+import useNavigateStore from "@/hooks/useNavbarStore";
 import { useShallow } from "zustand/shallow";
 import styles from "./navbar-bottom.module.scss";
 import NavbarBottomMenu from "./navbar-bottom-menu";
 
-import NavbarBottomToolbar from "./navbar-bottom-toolbar";
+import Toolbar from "./toolbar";
 
 export default function NavbarBottom() {
   const { isScrolled } = useNavigateStore(
@@ -21,7 +21,7 @@ export default function NavbarBottom() {
       <div className={styles.container}>
         <NavbarBottomMenu />
         {/* search */}
-        <NavbarBottomToolbar />
+        <Toolbar />
       </div>
     </div>
   );

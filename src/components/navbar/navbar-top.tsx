@@ -1,11 +1,11 @@
 "use client";
-import useNavigateStore from "@/hooks/useNavigateStore";
+import useNavbarStore from "@/hooks/useNavbarStore";
 import React, { useEffect } from "react";
 import { useShallow } from "zustand/shallow";
 import styles from "./navbar-top.module.scss";
 
 export default function NavbarTop() {
-  const { isScrolled, setIsScrolled } = useNavigateStore(
+  const { isScrolled, setIsScrolled } = useNavbarStore(
     useShallow((state) => ({
       isScrolled: state.isScrolled,
       setIsScrolled: state.setIsScrolled,
