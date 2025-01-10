@@ -5,6 +5,7 @@ import styles from "./navbar-bottom.module.scss";
 import NavbarBottomMenu from "./navbar-bottom-menu";
 
 import Toolbar from "./toolbar";
+import { Suspense } from "react";
 
 export default function NavbarBottom() {
   const { isScrolled } = useNavigateStore(
@@ -19,7 +20,9 @@ export default function NavbarBottom() {
         isScrolled > 15 && "shadow"
       }`}>
       <div className={styles.container}>
-        <NavbarBottomMenu />
+        <Suspense>
+          <NavbarBottomMenu />
+        </Suspense>
         {/* search */}
         <Toolbar />
       </div>
