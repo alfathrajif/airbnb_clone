@@ -10,13 +10,16 @@ import {
 import { Button } from "../ui/button";
 import styles from "./navbar-bottom-toolbar.module.scss";
 import { SlidersHorizontal } from "lucide-react";
+import ToolbarSwitch from "./toolbar-switch";
 
 export default function NavbarBottomToolbar() {
   return (
     <div className="flex w-fit items-center gap-x-5 mb-1">
       <Dialog>
         <DialogTrigger asChild>
-          <Button variant="outline" className="rounded-xl h-12">
+          <Button
+            variant="outline"
+            className="hover:border-muted-foreground rounded-xl h-12">
             <SlidersHorizontal />
             Filters
           </Button>
@@ -31,9 +34,7 @@ export default function NavbarBottomToolbar() {
           </DialogHeader>
         </DialogContent>
       </Dialog>
-      <Button variant="outline" className="rounded-xl h-12">
-        Display total before taxes
-      </Button>
+      <ToolbarSwitch />
     </div>
   );
 }

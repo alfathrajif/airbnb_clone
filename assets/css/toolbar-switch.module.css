@@ -1,0 +1,10 @@
+.switch {
+  @apply flex items-center rounded-full cursor-pointer transition-colors;
+  width: 38px;
+  height: 26px;
+}
+.switch__circle {
+  @apply flex items-center justify-center bg-background rounded-full shadow-sm transform transition-transform;
+  width: 20px;
+  height: 20px;
+}

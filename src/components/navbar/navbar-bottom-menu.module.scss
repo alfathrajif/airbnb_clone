@@ -3,7 +3,7 @@
   &::-webkit-scrollbar {
     @apply hidden;
   }
-  width: calc(100vw - 473px);
+  width: calc(100vw - 513px);
 }
 
 .prev {
@@ -39,11 +39,6 @@
 
 @media (min-width: 1380px) {
   .categories {
-    width: calc(100vw - 516px);
-  }
-}
-
-@media (min-width: 1580px) {
-  .categories {
+    width: calc(100vw - 560px);
   }
 }
