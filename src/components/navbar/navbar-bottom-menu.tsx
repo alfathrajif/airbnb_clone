@@ -54,6 +54,8 @@ export default function NavbarBottomMenu() {
     };
   }, []);
 
+  console.log(canScrollLeft, canScrollRight);
+
   const scrollLeft = () => {
     if (categoriesRef.current) {
       categoriesRef.current.scrollBy({ left: -200, behavior: "smooth" });
