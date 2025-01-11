@@ -13,7 +13,10 @@ import styles from "./toolbar-filters.module.scss";
 import { SlidersHorizontal, X } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import TypeofPlace from "./toolbar-filters-typeofplace";
-import ToolbarFiltersRoomsAndBeds from "./toolbar-filters-rooms-and-beds";
+import RoomsAndBeds from "./toolbar-filters-rooms-and-beds";
+import Amenities from "./toolbar-filters-amenities";
+import BookingOptions from "./toolbar-filters-booking-options";
+import StandoutStays from "./toolbar-filters-standout-stays";
 
 export default function ToolbarFilters() {
   const [open, setOpen] = useState(false);
@@ -48,21 +51,21 @@ export default function ToolbarFilters() {
             <Separator />
             <div className={styles.item}>
               <div className={styles.item__title}>Price Range</div>
+              <div>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
+                optio sapiente neque, labore hic distinctio aliquam explicabo.
+                Sunt ea maxime, provident dolor, minima ex suscipit vel
+                perspiciatis tempora odio amet.
+              </div>
             </div>
             <Separator />
-            <ToolbarFiltersRoomsAndBeds />
+            <RoomsAndBeds />
             <Separator />
-            <div className={styles.item}>
-              <div className={styles.item__title}>Amenities</div>
-            </div>
+            <Amenities />
             <Separator />
-            <div className={styles.item}>
-              <div className={styles.item__title}>Booking options</div>
-            </div>
+            <BookingOptions />
             <Separator />
-            <div className={styles.item}>
-              <div className={styles.item__title}>Standout stays</div>
-            </div>
+            <StandoutStays />
             <Separator />
             <div>Property type</div>
             <Separator />

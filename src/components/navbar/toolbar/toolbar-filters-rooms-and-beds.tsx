@@ -47,7 +47,7 @@ const Counter: React.FC<CounterProps> = ({
   </div>
 );
 
-export default function ToolbarFiltersRoomsAndBeds() {
+export default function RoomsAndBeds() {
   const [counterBedrooms, setCounterBedrooms] = useState(0);
   const [counterBeds, setCounterBeds] = useState(0);
   const [counterBathrooms, setCounterBathrooms] = useState(0);
@@ -64,6 +64,8 @@ export default function ToolbarFiltersRoomsAndBeds() {
   ) => {
     setter((prev) => Math.max(prev - 1, 0));
   };
+
+  console.log(counterBedrooms, counterBeds, counterBathrooms);
 
   return (
     <div className={styles.item}>

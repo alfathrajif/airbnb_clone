@@ -35,7 +35,12 @@
   @apply opacity-100 bg-foreground;
 }
 
-@media (min-width: 1380px) {
+@media (min-width: 768px) {
+  .categories {
+    width: calc(100vw - 528px);
+  }
+}
+@media (min-width: 1025px) {
   .categories {
     width: calc(100vw - 580px);
   }

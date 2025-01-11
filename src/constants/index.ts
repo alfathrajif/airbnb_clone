@@ -1,4 +1,4 @@
-import { Category } from "@/types";
+import { Amenity, BookingOption, Category } from "@/types";
 
 export const categories: Category[] = [
   { name: "Tropical", icon: "TreeDeciduous", path: "tropical" },
@@ -21,4 +21,83 @@ export const categories: Category[] = [
   { name: "Rooms", icon: "SquareActivity", path: "rooms" },
   { name: "Top of the world", icon: "Earth", path: "top-of-the-world" },
   { name: "Golfing", icon: "LandPlot", path: "golfing" },
+];
+
+export const amenities: Amenity[] = [
+  { name: "Wifi", icon: "Wifi", type: "essentials", isMain: true },
+  { name: "Kitchen", icon: "CookingPot", type: "essentials", isMain: true },
+  {
+    name: "Washer",
+    icon: "WashingMachine",
+    type: "essentials",
+    isMain: true,
+  },
+  { name: "Dryer", icon: "Wind", type: "essentials", isMain: true },
+  {
+    name: "Air conditioning",
+    icon: "AirVent",
+    type: "essentials",
+    isMain: true,
+  },
+  { name: "Heating", icon: "Heater", type: "essentials", isMain: true },
+  {
+    name: "Dedicated workspace",
+    icon: "Briefcase",
+    type: "essentials",
+    isMain: false,
+  },
+  { name: "TV", icon: "Tv", type: "essentials", isMain: false },
+  { name: "Hair dryer", icon: "Fan", type: "essentials", isMain: false },
+  { name: "Iron", icon: "Container", type: "essentials", isMain: false },
+  { name: "Pool", icon: "WavesLadder", type: "features", isMain: false },
+  { name: "Hot tub", icon: "Bath", type: "features", isMain: false },
+  {
+    name: "Free parking",
+    icon: "CircleParking",
+    type: "features",
+    isMain: false,
+  },
+  {
+    name: "Ev charger",
+    icon: "BatteryCharging",
+    type: "features",
+    isMain: false,
+  },
+  { name: "Crib", icon: "Fence", type: "features", isMain: false },
+  { name: "King bed", icon: "BedDouble", type: "features", isMain: false },
+  { name: "Gym", icon: "Dumbbell", type: "features", isMain: false },
+  { name: "BBQ gril", icon: "Beef", type: "features", isMain: false },
+  { name: "Breakfast", icon: "Utensils", type: "features", isMain: false },
+  {
+    name: "Indoor fireplace",
+    icon: "FlameKindling",
+    type: "features",
+    isMain: false,
+  },
+  {
+    name: "Smoking allowed",
+    icon: "Cigarette",
+    type: "features",
+    isMain: false,
+  },
+  {
+    name: "Beachfront",
+    icon: "Palmtree",
+    type: "location",
+    isMain: false,
+  },
+  { name: "Waterfront", icon: "Waves", type: "location", isMain: false },
+  { name: "Smoke alarm", icon: "SirenIcon", type: "safety", isMain: false },
+  {
+    name: "Carbon monoxide alarm",
+    icon: "AlarmSmoke",
+    type: "safety",
+    isMain: false,
+  },
+];
+
+export const bookingOptions: BookingOption[] = [
+  { name: "Instant Book", icon: "Zap" },
+  { name: "Self check-in", icon: "KeyRound" },
+  { name: "Allow pets", icon: "PawPrint" },
 ];
