@@ -13,6 +13,7 @@ import styles from "./toolbar-filters.module.scss";
 import { SlidersHorizontal, X } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import TypeofPlace from "./toolbar-filters-typeofplace";
+import ToolbarFiltersRoomsAndBeds from "./toolbar-filters-rooms-and-beds";
 
 export default function ToolbarFilters() {
   const [open, setOpen] = useState(false);
@@ -49,9 +50,7 @@ export default function ToolbarFilters() {
               <div className={styles.item__title}>Price Range</div>
             </div>
             <Separator />
-            <div className={styles.item}>
-              <div className={styles.item__title}>Rooms and Beds</div>
-            </div>
+            <ToolbarFiltersRoomsAndBeds />
             <Separator />
             <div className={styles.item}>
               <div className={styles.item__title}>Amenities</div>
