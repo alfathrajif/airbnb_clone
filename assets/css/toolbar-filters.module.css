@@ -17,3 +17,26 @@
 .item__title {
   @apply text-lg font-medium;
 }
+
+.chart__container {
+  height: 60px;
+  width: 100%;
+  @apply relative;
+}
+.chart__bar {
+  min-width: 8px;
+  max-width: 8px;
+  transition: height 0.3s ease;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  @apply bg-primary;
+}
+.chart__axis {
+  height: 2px;
+  border-radius: 2px;
+  @apply bg-primary w-full absolute bottom-0;
+}
+.chart__label {
+  text-align: center;
+  margin-top: 8px;
+}

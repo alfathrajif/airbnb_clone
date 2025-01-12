@@ -17,6 +17,7 @@ import RoomsAndBeds from "./toolbar-filters-rooms-and-beds";
 import Amenities from "./toolbar-filters-amenities";
 import BookingOptions from "./toolbar-filters-booking-options";
 import StandoutStays from "./toolbar-filters-standout-stays";
+import PriceRange from "./toolbar-filters-price-range";
 
 export default function ToolbarFilters() {
   const [open, setOpen] = useState(false);
@@ -49,15 +50,7 @@ export default function ToolbarFilters() {
           <div className={styles.filters__content__body}>
             <TypeofPlace />
             <Separator />
-            <div className={styles.item}>
-              <div className={styles.item__title}>Price Range</div>
-              <div>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
-                optio sapiente neque, labore hic distinctio aliquam explicabo.
-                Sunt ea maxime, provident dolor, minima ex suscipit vel
-                perspiciatis tempora odio amet.
-              </div>
-            </div>
+            <PriceRange />
             <Separator />
             <RoomsAndBeds />
             <Separator />

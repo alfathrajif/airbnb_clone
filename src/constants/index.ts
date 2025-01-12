@@ -101,3 +101,26 @@ export const bookingOptions: BookingOption[] = [
   { name: "Self check-in", icon: "KeyRound" },
   { name: "Allow pets", icon: "PawPrint" },
 ];
+
+export const products_example = [
+  { name: "Product 1", price: "Rp300.000", typeofPlace: "room" },
+  { name: "Product 2", price: "Rp450.000", typeofPlace: "entire home" },
+  { name: "Product 3", price: "Rp750.000", typeofPlace: "room" },
+];
+
+// Generate 1000 random products
+export const products = Array.from({ length: 1000 }, (_, index) => {
+  const name = `Product ${index + 1}`;
+  // Generate price with bias to average around 300,000 to 2,000,000
+  const price = Math.floor(Math.random() * (3000000 - 160000 + 1) + 160000);
+
+  const weightedPrice = Math.floor(price * 0.6 + Math.random() * 2000000 * 0.4);
+
+  const typeofPlace = Math.random() > 0.5 ? "room" : "entire home";
+
+  return {
+    name,
+    price: `Rp${weightedPrice.toLocaleString("id-ID")}`,
+    typeofPlace,
+  };
+});
