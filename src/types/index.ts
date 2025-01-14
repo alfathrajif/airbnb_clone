@@ -15,3 +15,8 @@ export interface BookingOption {
   name: string;
   icon: string;
 }
+
+export interface ChartData {
+  label: string;
+  value: number;
+}

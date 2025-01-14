@@ -1,5 +1,5 @@
 import ToolbarSwitch from "./toolbar-switch";
-import ToolbarFilters from "./toolbar-filters";
+import ToolbarFilters from "./filters";
 
 export default function Toolbar() {
   return (

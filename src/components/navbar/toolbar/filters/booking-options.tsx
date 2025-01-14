@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./toolbar-filters.module.scss";
+import filtersStyles from "./filters.module.scss";
 import { Button } from "@/components/ui/button";
 import { BookingOption } from "@/types";
 import { iconMapping } from "@/constants/icon-mapping";
@@ -44,8 +44,8 @@ export default function BookingOptions() {
   };
 
   return (
-    <div className={styles.item}>
-      <div className={styles.item__title}>Booking options</div>
+    <div className={filtersStyles.item}>
+      <div className={filtersStyles.item__title}>Booking options</div>
       <div className="flex flex-wrap gap-x-3 gap-y-4">
         {renderBookingOptions()}
       </div>

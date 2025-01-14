@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./toolbar-filters.module.scss";
+import filtersStyles from "./filters.module.scss";
 import { Button } from "@/components/ui/button";
 
 export default function TypeofPlace() {
@@ -21,8 +21,8 @@ export default function TypeofPlace() {
   console.log(selectedOption);
 
   return (
-    <div className={styles.item}>
-      <div className={styles.item__title}>Type of Place</div>
+    <div className={filtersStyles.item}>
+      <div className={filtersStyles.item__title}>Type of Place</div>
       {/* Container for the filter buttons */}
       <div className="relative border rounded-2xl flex p-1 h-14 mb-1.5">
         <div

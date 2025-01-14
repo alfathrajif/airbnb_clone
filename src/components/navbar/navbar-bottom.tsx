@@ -1,5 +1,5 @@
 "use client";
-import useNavigateStore from "@/hooks/useNavbarStore";
+import useNavigateStore from "@/hooks/use-navbar-store";
 import { useShallow } from "zustand/shallow";
 import styles from "./navbar-bottom.module.scss";
 import NavbarBottomMenu from "./navbar-bottom-menu";

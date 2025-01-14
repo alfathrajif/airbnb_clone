@@ -1,0 +1,36 @@
+/* src/index.css */
+@import "rc-slider/assets/index.css";
+.rc-slider {
+  position: absolute;
+  height: 32px;
+  cursor: pointer;
+  margin: 0 auto;
+  @apply flex items-center p-0 rounded-none;
+}
+.rc-slider.bottom-2 {
+  @apply -bottom-4;
+}
+
+.rc-slider-track,
+.rc-slider-tracks {
+  @apply bg-primary;
+  height: 3px;
+}
+
+.rc-slider-rail {
+  @apply bg-border rounded-none -left-[14px];
+  width: calc(100% + 25px);
+  height: 3px;
+}
+
+.rc-slider-handle {
+  width: 32px;
+  height: 32px;
+  opacity: 1;
+  bottom: -10px;
+  @apply border border-border rounded-full hover:border-border focus-visible:border-border focus-visible:shadow-none outline-none active:shadow-none active:border-border active:cursor-pointer top-1 hover:cursor-pointer;
+}
+
+.rc-slider-handle-dragging.rc-slider-handle-dragging.rc-slider-handle-dragging {
+  @apply border-border shadow-none;
+}

@@ -1,5 +1,5 @@
 "use client";
-import useNavbarStore from "@/hooks/useNavbarStore";
+import useNavbarStore from "@/hooks/use-navbar-store";
 import React, { useEffect } from "react";
 import { useShallow } from "zustand/shallow";
 import styles from "./navbar-top.module.scss";
@@ -26,8 +26,10 @@ export default function NavbarTop() {
   }, [setIsScrolled]);
 
   return (
-    <div className={`${styles.header} ${isScrolled && styles.scrolled}`}>
-      header
-    </div>
+    <>
+      <div className={`${styles.header} ${isScrolled && styles.scrolled}`}>
+        header
+      </div>
+    </>
   );
 }

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./toolbar-filters.module.scss";
+import filtersStyles from "./filters.module.scss";
 import { Button } from "@/components/ui/button";
 import { amenities } from "@/constants";
 import { iconMapping } from "@/constants/icon-mapping";
@@ -46,8 +46,8 @@ export default function Amenities() {
   };
 
   return (
-    <div className={styles.item}>
-      <div className={styles.item__title}>Amenities</div>
+    <div className={filtersStyles.item}>
+      <div className={filtersStyles.item__title}>Amenities</div>
       <div className="space-y-6 mt-1">
         <div>
           {isExpanded && <div className="font-medium mb-4">Essentials</div>}

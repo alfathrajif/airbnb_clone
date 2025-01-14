@@ -8,16 +8,16 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Button } from "../../ui/button";
-import styles from "./toolbar-filters.module.scss";
+import { Button } from "../../../ui/button";
 import { SlidersHorizontal, X } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
-import TypeofPlace from "./toolbar-filters-typeofplace";
-import RoomsAndBeds from "./toolbar-filters-rooms-and-beds";
-import Amenities from "./toolbar-filters-amenities";
-import BookingOptions from "./toolbar-filters-booking-options";
-import StandoutStays from "./toolbar-filters-standout-stays";
-import PriceRange from "./toolbar-filters-price-range";
+import TypeofPlace from "./typeofplace";
+import RoomsAndBeds from "./rooms-and-beds";
+import Amenities from "./amenities";
+import BookingOptions from "./booking-options";
+import StandoutStays from "./standout-stays";
+import PriceRange from "./price-range";
+import filtersStyles from "./filters.module.scss";
 
 export default function ToolbarFilters() {
   const [open, setOpen] = useState(false);
@@ -33,7 +33,7 @@ export default function ToolbarFilters() {
             Filters
           </Button>
         </DialogTrigger>
-        <DialogContent className={styles.filters__content}>
+        <DialogContent className={filtersStyles.filters__content}>
           <DialogHeader className="p-6 border-b space-y-0 relative">
             <Button
               onClick={() => setOpen(false)}
@@ -47,7 +47,7 @@ export default function ToolbarFilters() {
             </DialogTitle>
             <DialogDescription />
           </DialogHeader>
-          <div className={styles.filters__content__body}>
+          <div className={filtersStyles.filters__content__body}>
             <TypeofPlace />
             <Separator />
             <PriceRange />
@@ -66,7 +66,7 @@ export default function ToolbarFilters() {
             <Separator />
             <div>host language</div>
           </div>
-          <DialogFooter className={styles.filters__content__footer}>
+          <DialogFooter className={filtersStyles.filters__content__footer}>
             <Button
               variant="ghost"
               className="rounded-lg font-semibold text-base px-3 h-12">

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./toolbar-filters.module.scss";
+import filtersStyles from "./filters.module.scss";
 import { Button } from "@/components/ui/button";
 import { Star } from "lucide-react";
 
@@ -11,8 +11,8 @@ export default function StandoutStays() {
   };
 
   return (
-    <div className={styles.item}>
-      <div className={styles.item__title}>Standout stays</div>
+    <div className={filtersStyles.item}>
+      <div className={filtersStyles.item__title}>Standout stays</div>
       <Button
         onClick={toggleStandoutStays}
         variant="outline"

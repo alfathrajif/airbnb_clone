@@ -1,0 +1,29 @@
+.chart__container {
+  height: 60px;
+  width: 100%;
+  @apply relative;
+}
+.chart__bar {
+  min-width: 8px;
+  max-width: 8px;
+  transition: height 0.3s ease;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+.chart__label {
+  text-align: center;
+  margin-top: 8px;
+}
+
+.slider {
+  @apply absolute flex w-full touch-none select-none items-center -bottom-4;
+}
+.slider__track {
+  @apply relative h-8 w-full cursor-pointer grow overflow-hidden mt-1;
+}
+.slider__thumb {
+  @apply block h-8 w-8 rounded-full hover:bg-accent border bg-background shadow transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 cursor-pointer;
+}
+.slider__range {
+  @apply absolute bottom-4 h-[2px];
+}

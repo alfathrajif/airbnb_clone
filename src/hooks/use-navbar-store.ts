@@ -1,11 +1,11 @@
 import { create } from "zustand";
 
-interface NavigateStoreState {
+interface NavbarStoreState {
   isScrolled: number;
   setIsScrolled: (isScrolled: number) => void;
 }
 
-const useNavbarStore = create<NavigateStoreState>((set) => ({
+const useNavbarStore = create<NavbarStoreState>((set) => ({
   isScrolled: 0,
   setIsScrolled: (isScrolled: number) => set({ isScrolled }),
 }));

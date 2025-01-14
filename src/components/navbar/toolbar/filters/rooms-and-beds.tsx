@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./toolbar-filters.module.scss";
+import filtersStyles from "./filters.module.scss";
 import { Button } from "@/components/ui/button";
 import { Minus, Plus } from "lucide-react";
 
@@ -68,8 +68,8 @@ export default function RoomsAndBeds() {
   console.log(counterBedrooms, counterBeds, counterBathrooms);
 
   return (
-    <div className={styles.item}>
-      <div className={styles.item__title}>Rooms and Beds</div>
+    <div className={filtersStyles.item}>
+      <div className={filtersStyles.item__title}>Rooms and Beds</div>
       <div className="space-y-5">
         <Counter
           label="Bedrooms"
