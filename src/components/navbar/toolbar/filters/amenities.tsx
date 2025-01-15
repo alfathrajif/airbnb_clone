@@ -3,7 +3,7 @@ import filtersStyles from "./filters.module.scss";
 import { Button } from "@/components/ui/button";
 import { amenities } from "@/constants";
 import { iconMapping } from "@/constants/icon-mapping";
-import { Amenity } from "@/types";
+import { AmenityType } from "@/types";
 import { ChevronDown } from "lucide-react";
 
 export default function Amenities() {
@@ -24,7 +24,7 @@ export default function Amenities() {
   const renderAmenities = (filterType: string, showAll: boolean) => {
     return amenities
       .filter(({ type, isMain }) => type === filterType && (showAll || isMain))
-      .map(({ icon, name }: Amenity, index: number) => {
+      .map(({ icon, name }: AmenityType, index: number) => {
         const Icon = iconMapping[icon];
         const lowerCaseName = name.toLowerCase();
         const isActive = activeAmenities.includes(lowerCaseName);
@@ -51,7 +51,7 @@ export default function Amenities() {
       <div className="space-y-6 mt-1">
         <div>
           {isExpanded && <div className="font-medium mb-4">Essentials</div>}
-          <div className="flex flex-wrap gap-x-3 gap-y-4">
+          <div className="flex flex-wrap gap-x-3 gap-y-3.5">
             {renderAmenities("essentials", isExpanded)}
           </div>
         </div>
@@ -59,19 +59,19 @@ export default function Amenities() {
           <>
             <div>
               {isExpanded && <div className="font-medium mb-4">Features</div>}
-              <div className="flex flex-wrap gap-x-3 gap-y-4">
+              <div className="flex flex-wrap gap-x-3 gap-y-3.5">
                 {renderAmenities("features", true)}
               </div>
             </div>
             <div>
               {isExpanded && <div className="font-medium mb-4">Location</div>}
-              <div className="flex flex-wrap gap-x-3 gap-y-4">
+              <div className="flex flex-wrap gap-x-3 gap-y-3.5">
                 {renderAmenities("location", true)}
               </div>
             </div>
             <div>
               {isExpanded && <div className="font-medium mb-4">Safety</div>}
-              <div className="flex flex-wrap gap-x-3 gap-y-4">
+              <div className="flex flex-wrap gap-x-3 gap-y-3.5">
                 {renderAmenities("safety", true)}
               </div>
             </div>

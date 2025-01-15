@@ -1,6 +1,11 @@
-import { Amenity, BookingOption, Category } from "@/types";
+import {
+  AmenityType,
+  BookingOptionType,
+  CategoryType,
+  PropertyTypeType,
+} from "@/types";
 
-export const categories: Category[] = [
+export const categories: CategoryType[] = [
   { name: "Tropical", icon: "TreeDeciduous", path: "tropical" },
   { name: "Icons", icon: "Sparkles", path: "icons" },
   { name: "Beachfront", icon: "Waves", path: "beachfront" },
@@ -23,7 +28,7 @@ export const categories: Category[] = [
   { name: "Golfing", icon: "LandPlot", path: "golfing" },
 ];
 
-export const amenities: Amenity[] = [
+export const amenities: AmenityType[] = [
   { name: "Wifi", icon: "Wifi", type: "essentials", isMain: true },
   { name: "Kitchen", icon: "CookingPot", type: "essentials", isMain: true },
   {
@@ -96,7 +101,7 @@ export const amenities: Amenity[] = [
   },
 ];
 
-export const bookingOptions: BookingOption[] = [
+export const bookingOptions: BookingOptionType[] = [
   { name: "Instant Book", icon: "Zap" },
   { name: "Self check-in", icon: "KeyRound" },
   { name: "Allow pets", icon: "PawPrint" },
@@ -124,3 +129,22 @@ export const products = Array.from({ length: 1000 }, (_, index) => {
     typeofPlace,
   };
 });
+
+export const property_types: PropertyTypeType[] = [
+  {
+    name: "House",
+    icon: "House",
+  },
+  {
+    name: "Apartment",
+    icon: "Building",
+  },
+  {
+    name: "Guesthouse",
+    icon: "Warehouse",
+  },
+  {
+    name: "Hotel",
+    icon: "Hotel",
+  },
+];

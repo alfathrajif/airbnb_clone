@@ -8,7 +8,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Button } from "../../../ui/button";
 import { SlidersHorizontal, X } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import TypeofPlace from "./typeofplace";
@@ -18,6 +17,8 @@ import BookingOptions from "./booking-options";
 import StandoutStays from "./standout-stays";
 import PriceRange from "./price-range";
 import filtersStyles from "./filters.module.scss";
+import { Button } from "@/components/ui/button";
+import PropertyType from "./property-type";
 
 export default function ToolbarFilters() {
   const [open, setOpen] = useState(false);
@@ -60,7 +61,7 @@ export default function ToolbarFilters() {
             <Separator />
             <StandoutStays />
             <Separator />
-            <div>Property type</div>
+            <PropertyType />
             <Separator />
             <div>accessibility features</div>
             <Separator />

@@ -47,6 +47,10 @@ import {
   Zap,
   KeyRound,
   PawPrint,
+  HouseIcon,
+  Building,
+  WarehouseIcon,
+  Hotel,
 } from "lucide-react";
 
 export const iconMapping: Record<string, React.ComponentType> = {
@@ -98,4 +102,8 @@ export const iconMapping: Record<string, React.ComponentType> = {
   Zap,
   KeyRound,
   PawPrint,
+  HouseIcon,
+  Building,
+  WarehouseIcon,
+  Hotel,
 };
