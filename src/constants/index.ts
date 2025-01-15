@@ -148,3 +148,89 @@ export const property_types: PropertyTypeType[] = [
     icon: "Hotel",
   },
 ];
+
+export const accessibilityFeatures = {
+  guestEntranceAndParking: [
+    {
+      id: "step-free-access",
+      label: "Step-free access",
+    },
+    {
+      id: "disable-parking-spot",
+      label: "Disable parking spot",
+    },
+    {
+      id: "guest-entrance-wider-than-32-inches",
+      label: "Guest entrance wider than 32 inches",
+    },
+  ],
+  bedroom: [
+    {
+      id: "step-free-bedroom-access",
+      label: "Step-free bedroom access",
+    },
+    {
+      id: "bedroom-entrance-wider-than-32-inches",
+      label: "Bedroom entrance wider than 32 inches",
+    },
+  ],
+  bathroom: [
+    {
+      id: "step-free-bathroom-access",
+      label: "Step-free bathroom access",
+    },
+    {
+      id: "bathroom-entrance-wider-than-32-inches",
+      label: "Bathroom entrance wider than 32 inches",
+    },
+    {
+      id: "toilet-grab-bar",
+      label: "Toilet grab bar",
+    },
+    {
+      id: "shower-grab-bar",
+      label: "Shower grab bar",
+    },
+    {
+      id: "step-free-shower",
+      label: "Step-free shower",
+    },
+    {
+      id: "shower-or-bath-chair",
+      label: "Shower or bath chair",
+    },
+  ],
+  adaptiveEquipment: [
+    {
+      id: "ceiling-or-mobile-hoist",
+      label: "Ceiling or mobile hoist",
+    },
+  ],
+};
+
+export const hostLanguages = [
+  { id: "chinese", label: "Chinese" },
+  { id: "french", label: "French" },
+  { id: "italian", label: "Italian" },
+  { id: "korean", label: "Korean" },
+  { id: "russian", label: "Russian" },
+  { id: "arabic", label: "Arabic" },
+  { id: "dutch", label: "Dutch" },
+  { id: "hindi", label: "Hindi" },
+  { id: "malay", label: "Malay" },
+  { id: "thai", label: "Thai" },
+  { id: "gujarati", label: "Gujarati" },
+  { id: "urdu", label: "Urdu" },
+  { id: "english", label: "English" },
+  { id: "german", label: "German" },
+  { id: "japanese", label: "Japanese" },
+  { id: "portuguese", label: "Portuguese" },
+  { id: "spanish", label: "Spanish" },
+  { id: "czech", label: "Czech" },
+  { id: "greek", label: "Greek" },
+  { id: "indonesian", label: "Indonesian" },
+  { id: "swedish", label: "Swedish" },
+  { id: "bengali", label: "Bengali" },
+  { id: "tagalog", label: "Tagalog" },
+  { id: "sign-language", label: "Sign Language" },
+];

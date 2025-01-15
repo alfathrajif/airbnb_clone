@@ -19,6 +19,8 @@ import PriceRange from "./price-range";
 import filtersStyles from "./filters.module.scss";
 import { Button } from "@/components/ui/button";
 import PropertyType from "./property-type";
+import AccessibilityFeatures from "./accessibility-features";
+import HostLanguage from "./host-language";
 
 export default function ToolbarFilters() {
   const [open, setOpen] = useState(false);
@@ -63,9 +65,9 @@ export default function ToolbarFilters() {
             <Separator />
             <PropertyType />
             <Separator />
-            <div>accessibility features</div>
+            <AccessibilityFeatures />
             <Separator />
-            <div>host language</div>
+            <HostLanguage />
           </div>
           <DialogFooter className={filtersStyles.filters__content__footer}>
             <Button

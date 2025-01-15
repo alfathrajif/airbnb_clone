@@ -6,8 +6,8 @@ import { ChevronDown } from "lucide-react";
 import React, { useState } from "react";
 
 export default function PropertyType() {
+  const [isExpanded, setIsExpanded] = useState(true);
   const [activeTypes, setActiveTypes] = useState<string[]>([]);
-  const [isExpanded, setIsExpanded] = useState(false);
 
   const togglePropertyType = (name: string): void => {
     const lowercaseName = name.toLowerCase();
@@ -19,7 +19,7 @@ export default function PropertyType() {
   };
 
   return (
-    <div className="py-2">
+    <div className="py-4">
       <div
         onClick={() => setIsExpanded((prev) => !prev)}
         className="cursor-pointer flex items-center justify-between py-4">

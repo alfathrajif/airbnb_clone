@@ -2,7 +2,7 @@
   box-shadow: 0px 3px 20px 5px #00000038;
   @apply p-0 max-w-xl gap-0 overflow-hidden border-none;
   &__body {
-    @apply px-6 overflow-y-auto;
+    @apply px-7 overflow-y-auto;
     max-height: calc(100vh - 168px - 60px);
     .item {
       @apply flex flex-col py-5 gap-y-3;
