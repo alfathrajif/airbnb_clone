@@ -1,13 +1,13 @@
 "use client";
 import useNavigateStore from "@/hooks/use-navbar-store";
 import { useShallow } from "zustand/shallow";
-import styles from "./navbar-bottom.module.scss";
-import NavbarBottomMenu from "./navbar-bottom-menu";
+import styles from "./navigation.module.scss";
+import NavbarBottomMenu from "./menu";
 
 import Toolbar from "./toolbar";
 import { Suspense } from "react";
 
-export default function NavbarBottom() {
+export default function NavbarNavigation() {
   const { isScrolled } = useNavigateStore(
     useShallow((state) => ({
       isScrolled: state.isScrolled,
@@ -16,7 +16,7 @@ export default function NavbarBottom() {
 
   return (
     <div
-      className={`${styles.categories} ${isScrolled && styles.scrolled} ${
+      className={`${styles.navigation} ${isScrolled && styles.scrolled} ${
         isScrolled > 15 && "shadow"
       }`}>
       <div className={styles.container}>

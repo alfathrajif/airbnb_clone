@@ -1,7 +1,7 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { useEffect, useRef, useState } from "react";
-import styles from "./navbar-bottom-menu.module.scss";
+import styles from "./menu.module.scss";
 import { categories } from "@/constants";
 import { iconMapping } from "@/constants/icon-mapping";
 import { ChevronLeft, ChevronRight } from "lucide-react";
