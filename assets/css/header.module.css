@@ -1,7 +1,29 @@
 .header {
-  @apply sticky top-0 z-50 w-full bg-background border-b transition-all ease-out duration-300;
+  @apply sticky top-0 z-50 w-full bg-background border-b transition-all duration-200;
   height: 168px;
 }
 .header.scrolled {
   height: 80px;
+}
+
+.container {
+  width: 100%;
+  height: 80px;
+  @apply px-6 flex items-center justify-between;
+}
+
+@media (min-width: 540px) {
+  .container {
+    @apply px-10;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    @apply px-14;
+  }
+}
+@media (min-width: 1025px) {
+  .container {
+    @apply px-20;
+  }
 }

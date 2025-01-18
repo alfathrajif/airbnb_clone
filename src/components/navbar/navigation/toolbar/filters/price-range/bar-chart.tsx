@@ -1,4 +1,4 @@
-import { ChartData } from "@/types";
+import { ChartDataType } from "@/types";
 import priceRangeStyles from "./price-range.module.scss";
 import useFiltersPriceRangeStore from "@/hooks/use-filters-price-range-store";
 import { useShallow } from "zustand/shallow";
@@ -6,7 +6,7 @@ import Slider from "rc-slider";
 import "./slider.scss";
 
 interface BarChartProps {
-  data: ChartData[];
+  data: ChartDataType[];
 }
 
 const BarChart: React.FC<BarChartProps> = ({ data }) => {
@@ -21,7 +21,9 @@ const BarChart: React.FC<BarChartProps> = ({ data }) => {
     setPrintMaxPrice,
   } = useFiltersPriceRangeStore(useShallow((state) => state));
 
-  const maxDataValue = Math.max(...data.map((item: ChartData) => item.value));
+  const maxDataValue = Math.max(
+    ...data.map((item: ChartDataType) => item.value)
+  );
 
   const handleSliderChange = (values: number | number[]) => {
     if (Array.isArray(values)) {

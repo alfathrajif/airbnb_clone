@@ -3,6 +3,7 @@ import useNavbarStore from "@/hooks/use-navbar-store";
 import React, { useEffect } from "react";
 import { useShallow } from "zustand/shallow";
 import styles from "./header.module.scss";
+import Search from "./search";
 
 export default function NavbarHeader() {
   const { isScrolled, setIsScrolled } = useNavbarStore(
@@ -28,7 +29,11 @@ export default function NavbarHeader() {
   return (
     <>
       <div className={`${styles.header} ${isScrolled && styles.scrolled}`}>
-        header
+        <div className={styles.container}>
+          <div>Logo</div>
+          <div>nav</div>
+        </div>
+        <Search />
       </div>
     </>
   );

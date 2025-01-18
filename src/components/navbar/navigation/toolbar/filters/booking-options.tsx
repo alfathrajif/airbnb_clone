@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import filtersStyles from "./filters.module.scss";
 import { Button } from "@/components/ui/button";
-import { BookingOption } from "@/types";
+import { BookingOptionType } from "@/types";
 import { iconMapping } from "@/constants/icon-mapping";
 import { bookingOptions } from "@/constants";
 
@@ -21,7 +21,7 @@ export default function BookingOptions() {
 
   const renderBookingOptions = () => {
     return bookingOptions.map(
-      ({ icon, name }: BookingOption, index: number) => {
+      ({ icon, name }: BookingOptionType, index: number) => {
         const Icon = iconMapping[icon];
         const lowerCaseName = name.toLowerCase();
         const isActive = activeBookingOptions.includes(lowerCaseName);

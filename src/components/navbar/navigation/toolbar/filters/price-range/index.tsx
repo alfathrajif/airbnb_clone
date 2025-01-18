@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import filtersStyles from "../filters.module.scss";
 import { products } from "@/constants";
 import BarChart from "./bar-chart";
-import { ChartData } from "@/types";
+import { ChartDataType } from "@/types";
 import useFiltersPriceRangeStore from "@/hooks/use-filters-price-range-store";
 import { useShallow } from "zustand/shallow";
 import EntryPrice from "./entry-price";
@@ -12,7 +12,7 @@ const generatePriceRangeData = (
   max: number,
   step: number,
   values: number[]
-): ChartData[] => {
+): ChartDataType[] => {
   return Array.from({ length: Math.ceil((max - min) / step) }, (_, index) => {
     const rangeStart = min + index * step;
     const rangeEnd = rangeStart + step;
