@@ -47,6 +47,13 @@
       @apply absolute -z-10 top-0 left-0 h-full w-full rounded-full hover:bg-accent;
       content: "";
     }
+    &.onDropdown {
+      &::after {
+        @apply absolute -z-10 top-0 left-0 h-full w-full rounded-full hover:bg-transparent;
+        content: "";
+      }
+    }
+
     &.onNeighbor_left {
       &::after {
         @apply absolute -z-10 top-0 h-full rounded-full hover:bg-muted-foreground/15;
@@ -63,7 +70,7 @@
     @apply flex flex-col h-full justify-center px-6 w-full;
   }
   &__dropdown {
-    @apply absolute z-10 mt-2 right-0 bg-background w-full max-w-md h-full rounded-3xl;
+    @apply absolute z-10 mt-2 right-0 bg-background w-full h-full max-w-md  rounded-3xl;
     box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.15);
   }
 }
@@ -108,7 +115,7 @@
 .onNeighbor_left_onSearch {
   @apply relative hover:bg-transparent;
   &::after {
-    @apply absolute -z-10 top-0 h-full rounded-full hover:bg-muted-foreground/15;
+    @apply absolute -z-10 top-0 h-full rounded-full hover:bg-transparent;
     content: "";
     width: calc(100% + 50px);
     left: -50px;

@@ -29,19 +29,9 @@ export default function NavbarBottomMenu() {
       }
     };
 
-    const handleWheelScroll = (event: WheelEvent) => {
-      const element = categoriesRef.current;
-
-      if (element && event.deltaY !== 0) {
-        event.preventDefault();
-        element.scrollLeft += event.deltaY;
-      }
-    };
-
     const categoriesElement = categoriesRef.current;
     if (categoriesElement) {
       categoriesElement.addEventListener("scroll", handleScroll);
-      categoriesElement.addEventListener("wheel", handleWheelScroll);
 
       handleScroll();
     }
@@ -49,7 +39,6 @@ export default function NavbarBottomMenu() {
     return () => {
       if (categoriesElement) {
         categoriesElement.removeEventListener("scroll", handleScroll);
-        categoriesElement.removeEventListener("wheel", handleWheelScroll);
       }
     };
   }, []);
@@ -98,22 +87,14 @@ export default function NavbarBottomMenu() {
 
       {canScrollLeft && (
         <div className={styles.prev}>
-          <Button
-            size="icon"
-            variant="outline"
-            className="[&_svg]:size-5"
-            onClick={scrollLeft}>
+          <Button size="icon" variant="outline" className="[&_svg]:size-5" onClick={scrollLeft}>
             <ChevronLeft />
           </Button>
         </div>
       )}
       {canScrollRight && (
         <div className={styles.next}>
-          <Button
-            size="icon"
-            variant="outline"
-            className="[&_svg]:size-5"
-            onClick={scrollRight}>
+          <Button size="icon" variant="outline" className="[&_svg]:size-5" onClick={scrollRight}>
             <ChevronRight />
           </Button>
         </div>

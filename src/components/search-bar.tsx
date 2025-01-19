@@ -64,14 +64,10 @@ const SectionCard: React.FC<SectionCardProps> = ({
     onMouseLeave={() => setHoveredSection("")}>
     <div
       className={`pl-7 py-3.5 rounded-full ${
-        clickedSection === sectionKey
-          ? "bg-white hover:bg-white"
-          : "hover:bg-accent"
+        clickedSection === sectionKey ? "bg-white hover:bg-white" : "hover:bg-accent"
       }`}>
       <div className="text-xs font-semibold">{title}</div>
-      <div className="text-sm text-muted-foreground font-medium">
-        {description}
-      </div>
+      <div className="text-sm text-muted-foreground font-medium">{description}</div>
     </div>
   </div>
 );
@@ -179,8 +175,7 @@ export default function SearchBar() {
               className={`h-8 ${
                 hoveredSection === "checkin" || hoveredSection === "checkout"
                   ? "bg-transparent"
-                  : clickedSection === "checkin" ||
-                    clickedSection === "checkout"
+                  : clickedSection === "checkin" || clickedSection === "checkout"
                   ? "bg-transparent"
                   : "bg-zinc-300"
               }`}
