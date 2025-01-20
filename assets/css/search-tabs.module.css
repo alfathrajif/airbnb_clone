@@ -2,21 +2,30 @@
   height: 168px;
   @apply absolute top-0 left-1/2 -translate-x-1/2 transition-all duration-200 flex items-center flex-col justify-center gap-y-4 w-full max-w-4xl;
 }
-.search.scrolled {
+.search.off {
   top: -88px;
+}
+.search.on {
+  top: 0;
 }
 .search__tabs {
   @apply flex gap-x-1.5 scale-100 transition-all duration-200 ease-in-out;
 }
-.search__tabs.scrolled {
+.search__tabs.off {
   @apply scale-0;
+}
+.search__tabs.on {
+  @apply scale-100;
 }
 .search__input__wrapper {
   @apply w-full border rounded-full h-16 transition-all duration-200 ease-in-out;
   box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.15);
 }
-.search__input__wrapper.scrolled {
+.search__input__wrapper.off {
   @apply h-12 mt-8 w-[400px];
+}
+.search__input__wrapper.on {
+  @apply scale-100;
 }
 .search__container {
   @apply flex justify-between items-center h-full rounded-full overflow-hidden;
