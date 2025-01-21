@@ -20,11 +20,7 @@
     @apply px-10;
   }
 }
-@media (min-width: 768px) {
-  .container {
-    @apply px-14;
-  }
-}
+
 @media (min-width: 1025px) {
   .container {
     @apply px-20;

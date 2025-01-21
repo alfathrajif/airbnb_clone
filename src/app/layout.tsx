@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Footer from "@/components/footer";
-import { Poppins } from "next/font/google";
+import { Poppins, DM_Serif_Text } from "next/font/google";
 import styles from "./app.module.scss";
 
 export const metadata: Metadata = {
@@ -12,6 +12,13 @@ export const metadata: Metadata = {
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
+  variable: "--font-poppins",
+});
+
+const dmSerifText = DM_Serif_Text({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-dmSerifText",
 });
 
 export default function RootLayout({
@@ -20,10 +27,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={poppins.className}>
-      <body>
+    <html lang="en" className={`${poppins.variable} ${dmSerifText.variable}`}>
+      <body className="font-poppins">
         <div className={styles.container}>
-          {/* <Header /> */}
           {children}
           <Footer />
         </div>

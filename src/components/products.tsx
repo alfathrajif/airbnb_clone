@@ -28,7 +28,7 @@ export default function Products() {
   }, []);
 
   return (
-    <div className="">
+    <div className="py-5">
       <div className={styles.container}>
         <div className={styles.wrapper}>
           {Array(20)
@@ -47,8 +47,7 @@ export default function Products() {
                   />
                 </div>
                 <div className="py-2">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Repellendus, deleniti?
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, deleniti?
                 </div>
               </div>
             ))}

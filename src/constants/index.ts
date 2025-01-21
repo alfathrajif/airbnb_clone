@@ -1,9 +1,4 @@
-import {
-  AmenityType,
-  BookingOptionType,
-  CategoryType,
-  PropertyTypeType,
-} from "@/types";
+import { AmenityType, BookingOptionType, CategoryType, PropertyTypeType } from "@/types";
 
 export const categories: CategoryType[] = [
   { name: "Tropical", icon: "TreeDeciduous", path: "tropical" },

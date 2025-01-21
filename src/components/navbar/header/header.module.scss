@@ -1,46 +1,13 @@
-// .header {
-//   @apply sticky top-0 z-50 w-full bg-background border-b transition-all duration-200;
-//   height: 168px;
-//   &.off {
-//     height: 80px;
-//   }
-// }
-
-// .container {
-//   width: 100%;
-//   height: 80px;
-//   @apply px-6 flex items-center justify-between;
-// }
-
-// @media (min-width: 540px) {
-//   .container {
-//     @apply px-10;
-//   }
-// }
-
-// @media (min-width: 768px) {
-//   .container {
-//     @apply px-14;
-//   }
-// }
-
-// @media (min-width: 1025px) {
-//   .container {
-//     @apply px-20;
-//   }
-// }
-
 .wrapper {
   @apply border-b z-50 transition-all duration-200 ease-out sticky w-full top-0 bg-background;
   height: 81px;
   &.start {
-    height: 168px;
+    @apply h-[225px] xl:h-[168px];
   }
 }
 
 .header {
-  @apply px-20 flex items-center transition-all duration-200 ease-out;
-  height: 80px;
+  @apply px-6 h-[80px] flex items-center transition-all duration-200 ease-out;
   &::before {
     content: "";
     @apply -z-10 top-0 left-0 absolute bg-background w-full transition-all duration-200 ease-out;
@@ -48,22 +15,35 @@
   }
   &.active {
     &::before {
-      @apply shadow-sm;
-      height: 168px;
+      @apply shadow-sm h-[225px] xl:h-[168px];
     }
+  }
+  @media (min-width: 540px) {
+    @apply px-10;
+  }
+
+  @media (min-width: 1025px) {
+    @apply px-20;
   }
 }
 
 .toggleSearch {
-  @apply opacity-100 px-1.5 w-fit flex items-center justify-between cursor-pointer bg-background transition-all duration-200 ease-out border rounded-full;
+  @apply absolute z-20 top-[14px] left-[290px] xl:left-1/2 -translate-x-1/2 opacity-100 px-1.5 w-fit flex items-center justify-between cursor-pointer bg-background transition-all duration-200 ease-out border rounded-full;
   visibility: visible;
   box-shadow: 0px 1px 5px #00000010;
+  @media (min-width: 1025px) {
+    @apply left-[335px];
+  }
+  @media (min-width: 1280px) {
+    @apply left-1/2;
+  }
   &:hover {
     box-shadow: 0px 1px 5px #00000030;
   }
   &.active {
-    @apply mt-36 w-fit px-2 opacity-0;
-    visibility: hidden;
+    @apply top-[136px] left-1/2 xl:top-20 w-fit px-2 -z-10;
+    opacity: 0;
+    // visibility: hidden;
   }
   .button {
     @apply h-12 px-5 hover:bg-background transition-all duration-200 ease-out;
@@ -80,21 +60,30 @@
 }
 
 .search {
-  @apply absolute left-1/2 -translate-x-1/2 transition-all duration-200 ease-out flex items-center flex-col justify-center gap-y-4 w-full;
+  @apply absolute  left-[460px] -translate-x-1/2 transition-all duration-200 ease-out flex items-center flex-col justify-center gap-y-4 w-full;
+  @media (min-width: 1280px) {
+    @apply left-1/2;
+  }
   top: -64px;
-  opacity: 1;
+  opacity: 0;
   visibility: hidden;
   &.active {
-    top: 0;
+    @apply top-14 z-20 max-w-4xl left-1/2 xl:top-0;
     opacity: 1;
     visibility: visible;
   }
 }
 
 .tabs {
-  @apply scale-75 transition-all duration-200 ease-out;
+  @apply scale-75 transition-all duration-200 ease-out w-full max-w-4xl px-6;
   opacity: 0;
   visibility: hidden;
+  @media (min-width: 540px) {
+    @apply px-10;
+  }
+  @media (min-width: 1025px) {
+    @apply px-0;
+  }
   &.active {
     @apply scale-100;
     opacity: 1;
@@ -106,10 +95,10 @@
       @apply bg-accent shadow-none;
     }
     &_item {
-      width: 173px;
+      width: 100%;
       height: 4rem;
       &.active {
-        width: 286px;
+        width: 100%;
       }
     }
   }

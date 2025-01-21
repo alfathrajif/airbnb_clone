@@ -24,9 +24,6 @@
   }
 }
 @media (min-width: 768px) {
-  .container {
-    @apply px-14;
-  }
   .wrapper {
     @apply grid-cols-3 gap-6;
   }

@@ -1,68 +1,53 @@
 "use client";
-// import useNavbarStore from "@/hooks/use-navbar-store";
-// import React, { useEffect } from "react";
-// import { useShallow } from "zustand/shallow";
 import { Button } from "@/components/ui/button";
 import styles from "./header.module.scss";
 import { Separator } from "@/components/ui/separator";
 import { Search } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
-// import SearchTabs from "./search-tabs";
-
-// export default function NavbarHeader() {
-//   const { isScrolled, setIsScrolled } = useNavbarStore(
-//     useShallow((state) => ({
-//       isScrolled: state.isScrolled,
-//       setIsScrolled: state.setIsScrolled,
-//     }))
-//   );
-
-//   useEffect(() => {
-//     setIsScrolled(window.scrollY);
-
-//     const handleScroll = () => {
-//       setIsScrolled(window.scrollY);
-//     };
-
-//     window.addEventListener("scroll", handleScroll);
-
-//     // clean up
-//     return () => {
-//       window.removeEventListener("scroll", handleScroll);
-//     };
-//   }, [setIsScrolled]);
-
-//   return (
-//     <>
-//       <div className={`${styles.header} ${isScrolled && styles.off}`}>
-//         <div className={styles.container}>
-//           <div>Logo</div>
-//           <div>nav</div>
-//         </div>
-//         <SearchTabs />
-//       </div>
-//     </>
-//   );
-// }
+import Link from "next/link";
+import Brand from "./brand";
+import LangAndRegion from "./lang-and-region";
+import ProfileDropdown from "./profile-dropdown";
+import useNavbarStore from "@/hooks/use-navbar-store";
+import { useShallow } from "zustand/shallow";
 
 export default function NavbarHeader() {
-  const [isDropSearch, setIsDropSearch] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(0);
-  const [hover, setHover] = useState<string>("");
-  const [click, setClick] = useState<string>("");
-  const [activeTab, setActiveTab] = useState("stays");
+  const {
+    isScrolled,
+    setIsScrolled,
+    isDropSearch,
+    setIsDropSearch,
+    hover,
+    setHover,
+    click,
+    setClick,
+    activeTab,
+    setActiveTab,
+  } = useNavbarStore(
+    useShallow((state) => ({
+      isScrolled: state.isScrolled,
+      setIsScrolled: state.setIsScrolled,
+      isDropSearch: state.isDropSearch,
+      setIsDropSearch: state.setIsDropSearch,
+      hover: state.hover,
+      setHover: state.setHover,
+      click: state.click,
+      setClick: state.setClick,
+      activeTab: state.activeTab,
+      setActiveTab: state.setActiveTab,
+    }))
+  );
 
   const initialScrollY = useRef(0);
-
   const headerRef = useRef<HTMLDivElement>(null);
-  const tabsListRef = useRef<HTMLDivElement>(null);
   const tabsContentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Node;
+
       if (headerRef.current && !headerRef.current.contains(target)) {
         setIsDropSearch(false);
       }
@@ -78,9 +63,7 @@ export default function NavbarHeader() {
       }
     };
 
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY);
 
     window.addEventListener("scroll", handleScroll);
     document.addEventListener("click", handleClickOutside);
@@ -89,21 +72,19 @@ export default function NavbarHeader() {
       window.removeEventListener("scroll", handleScroll);
       document.removeEventListener("click", handleClickOutside);
     };
-  }, []);
+  }, [setClick, setHover, setIsDropSearch, setIsScrolled]);
 
+  // close search when scrolled
   useEffect(() => {
     setIsScrolled(window.scrollY);
+    const scrollDiff = Math.abs(isScrolled - initialScrollY.current);
 
-    if (isDropSearch && Math.abs(isScrolled - initialScrollY.current) > 60) {
-      setIsDropSearch(false);
+    if (scrollDiff > 60) {
       setHover("");
       setClick("");
+      if (isDropSearch) setIsDropSearch(false);
     }
-    if (Math.abs(isScrolled - initialScrollY.current) > 60) {
-      setHover("");
-      setClick("");
-    }
-  }, [isScrolled, isDropSearch]);
+  }, [isScrolled, isDropSearch, setIsScrolled, setIsDropSearch, setHover, setClick]);
 
   useEffect(() => {
     if (click.trim() && click !== "where") {
@@ -121,12 +102,20 @@ export default function NavbarHeader() {
   const fixDropSearch = isDropSearch && isScrolled > 0;
   const startDropSearch = isScrolled === 0;
 
+  const handleButtonClick = (e: React.MouseEvent, hoverValue: string, clickValue: string) => {
+    e.stopPropagation();
+    initialScrollY.current = window.scrollY;
+    setIsDropSearch(true);
+    setHover(hoverValue);
+    setClick(clickValue);
+  };
+
   return (
     <>
       <div className={`${styles.wrapper} ${startDropSearch && styles.start}`}>
         <header ref={headerRef} className={`${styles.header} ${fixDropSearch && styles.active}`}>
           <div className="w-full flex justify-between items-center">
-            <div className="w-full">airbnb</div>
+            <Brand />
             <div
               onClick={handleDropdownSearch}
               className={`${styles.toggleSearch} ${
@@ -134,13 +123,7 @@ export default function NavbarHeader() {
               }`}>
               <div className="w-full">
                 <Button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    initialScrollY.current = window.scrollY;
-                    setIsDropSearch(true);
-                    setHover("where");
-                    setClick("where");
-                  }}
+                  onClick={(e) => handleButtonClick(e, "where", "where")}
                   variant="ghost"
                   className={`rounded-r-none ${styles.button} ${
                     (isDropSearch || startDropSearch) && styles.active
@@ -151,18 +134,13 @@ export default function NavbarHeader() {
               <Separator orientation="vertical" className="h-6" />
               <div className="w-full">
                 <Button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    initialScrollY.current = window.scrollY;
-                    setIsDropSearch(true);
-                    if (activeTab === "stays") {
-                      setHover("checkin");
-                      setClick("checkin");
-                    } else {
-                      setHover("date");
-                      setClick("date");
-                    }
-                  }}
+                  onClick={(e) =>
+                    handleButtonClick(
+                      e,
+                      activeTab === "stays" ? "checkin" : "date",
+                      activeTab === "stays" ? "checkin" : "date"
+                    )
+                  }
                   variant="ghost"
                   className={`rounded-none ${styles.button} ${
                     (isDropSearch || startDropSearch) && styles.active
@@ -173,13 +151,7 @@ export default function NavbarHeader() {
               <Separator orientation="vertical" className="h-6" />
               <div className="w-full flex items-center">
                 <Button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    initialScrollY.current = window.scrollY;
-                    setIsDropSearch(true);
-                    setHover("who");
-                    setClick("who");
-                  }}
+                  onClick={(e) => handleButtonClick(e, "who", "who")}
                   variant="ghost"
                   className={`rounded-none text-muted-foreground hover:text-muted-foreground ${
                     styles.button
@@ -194,14 +166,20 @@ export default function NavbarHeader() {
                 </div>
               </div>
             </div>
-            <div className="w-full flex justify-end">account etc.</div>
+            <div className="z-30 w-fit flex items-center justify-end">
+              <Button asChild variant="ghost" className="h-11 px-4">
+                <Link href="/host/homes">Airbnb your home</Link>
+              </Button>
+              <LangAndRegion />
+              <ProfileDropdown />
+            </div>
           </div>
           <div className={`${styles.search} ${(isDropSearch || startDropSearch) && styles.active}`}>
             <Tabs
               onValueChange={setActiveTab}
               defaultValue="stays"
               className={`${styles.tabs} ${(isDropSearch || startDropSearch) && styles.active}`}>
-              <TabsList ref={tabsListRef} className="flex h-20 w-fit mx-auto">
+              <TabsList className="flex h-20 w-fit mx-auto">
                 <TabsTrigger value="stays" className="text-base">
                   Stays
                 </TabsTrigger>
@@ -228,7 +206,11 @@ export default function NavbarHeader() {
                           <div className="pl-3">
                             <div className="text-[13px] font-medium">Where</div>
                             <Input
-                              className="h-auto p-0 border-0 shadow-none placeholder:text-muted-foreground"
+                              className={`h-auto p-0 border-0 shadow-none ${
+                                click.trim() && click !== "where"
+                                  ? "placeholder:text-foreground"
+                                  : "placeholder:text-muted-foreground"
+                              }`}
                               onFocus={() => setClick("where")}
                               placeholder="Search destinations"
                             />
@@ -266,7 +248,14 @@ export default function NavbarHeader() {
                           } ${click === "checkout" && styles.hoverNeighborRight}`}>
                           <div>
                             <div className="text-[13px] font-medium">Check in</div>
-                            <div className="text-sm text-muted-foreground">Add dates</div>
+                            <div
+                              className={`text-sm ${
+                                click.trim() && click !== "checkin"
+                                  ? "text-foreground"
+                                  : "text-muted-foreground"
+                              }`}>
+                              Add dates
+                            </div>
                           </div>
                         </div>
                         <Separator
@@ -290,7 +279,14 @@ export default function NavbarHeader() {
                           }`}>
                           <div>
                             <div className="text-[13px] font-medium">Check out</div>
-                            <div className="text-sm text-muted-foreground">Add dates</div>
+                            <div
+                              className={`text-sm ${
+                                click.trim() && click !== "checkout"
+                                  ? "text-foreground"
+                                  : "text-muted-foreground"
+                              }`}>
+                              Add dates
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -330,7 +326,14 @@ export default function NavbarHeader() {
                         <div className="flex items-center justify-between w-full">
                           <div>
                             <div className="text-[13px] font-medium">Who</div>
-                            <div className="text-sm text-muted-foreground">Add guests</div>
+                            <div
+                              className={`text-sm ${
+                                click.trim() && click !== "who"
+                                  ? "text-foreground"
+                                  : "text-muted-foreground"
+                              }`}>
+                              Add guests
+                            </div>
                           </div>
                           <Button
                             onMouseEnter={(e) => {
@@ -371,7 +374,11 @@ export default function NavbarHeader() {
                           <div className="pl-3">
                             <div className="text-[13px] font-medium">Where</div>
                             <Input
-                              className="h-auto p-0 border-0 shadow-none placeholder:text-muted-foreground"
+                              className={`h-auto p-0 border-0 shadow-none ${
+                                click.trim() && click !== "where"
+                                  ? "placeholder:text-foreground"
+                                  : "placeholder:text-muted-foreground"
+                              }`}
                               onFocus={() => setClick("where")}
                               placeholder="Search destinations"
                             />
@@ -408,7 +415,14 @@ export default function NavbarHeader() {
                         } ${click === "who" && styles.hoverNeighborRight}`}>
                         <div>
                           <div className="text-[13px] font-medium">Date</div>
-                          <div className="text-sm text-muted-foreground">Add dates</div>
+                          <div
+                            className={`text-sm ${
+                              click.trim() && click !== "date"
+                                ? "text-foreground"
+                                : "text-muted-foreground"
+                            }`}>
+                            Add dates
+                          </div>
                         </div>
                       </div>
                       {/* date dropdown */}
@@ -442,7 +456,14 @@ export default function NavbarHeader() {
                         <div className="flex items-center justify-between w-full">
                           <div>
                             <div className="text-[13px] font-medium">Who</div>
-                            <div className="text-sm text-muted-foreground">Add guests</div>
+                            <div
+                              className={`text-sm ${
+                                click.trim() && click !== "who"
+                                  ? "text-foreground"
+                                  : "text-muted-foreground"
+                              }`}>
+                              Add guests
+                            </div>
                           </div>
                           <Button
                             onMouseEnter={(e) => {
