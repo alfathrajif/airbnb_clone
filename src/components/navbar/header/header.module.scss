@@ -1,76 +1,179 @@
 .wrapper {
-  @apply border-b z-50 transition-all duration-200 ease-out sticky w-full top-0 bg-background;
+  border-bottom: 1px solid hsl(var(--border));
+  z-index: 50;
+  transition: all 200ms ease-out;
+  position: sticky;
+  width: 100%;
+  top: 0;
   height: 81px;
+  background-color: hsl(var(--background));
+
   &.start {
-    @apply h-[225px] xl:h-[168px];
+    height: 225px;
+
+    @media (min-width: 1280px) {
+      height: 168px;
+    }
   }
 }
 
 .header {
-  @apply px-6 h-[80px] flex items-center transition-all duration-200 ease-out;
+  padding-left: 24px;
+  padding-right: 24px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  transition: all 200ms ease-out;
+
   &::before {
     content: "";
-    @apply -z-10 top-0 left-0 absolute bg-background w-full transition-all duration-200 ease-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: hsl(var(--background));
+    transition: all 200ms ease-out;
     height: 80px;
+    z-index: -10;
   }
+
   &.active {
     &::before {
-      @apply shadow-sm h-[225px] xl:h-[168px];
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      height: 225px;
+
+      @media (min-width: 1280px) {
+        height: 168px;
+      }
     }
   }
+
   @media (min-width: 540px) {
-    @apply px-10;
+    padding-left: 40px;
+    padding-right: 40px;
   }
 
   @media (min-width: 1025px) {
-    @apply px-20;
+    padding-left: 80px;
+    padding-right: 80px;
   }
 }
 
 .toggleSearch {
-  @apply absolute z-20 top-[14px] left-[290px] xl:left-1/2 -translate-x-1/2 opacity-100 px-1.5 w-fit flex items-center justify-between cursor-pointer bg-background transition-all duration-200 ease-out border rounded-full;
+  position: absolute;
+  z-index: 20;
+  top: 14px;
+  left: 290px;
+  transform: translateX(-50%);
+  padding-left: 6px;
+  padding-right: 6px;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  background-color: var(--background);
+  transition: all 200ms ease-out;
+  border: 1px solid hsl(var(--border));
+  border-radius: 9999px;
+  opacity: 1;
+  visibility: visible;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.06);
+  opacity: 1;
   visibility: visible;
   box-shadow: 0px 1px 5px #00000010;
+
   @media (min-width: 1025px) {
-    @apply left-[335px];
+    left: 335px;
   }
+
   @media (min-width: 1280px) {
-    @apply left-1/2;
+    left: 50%;
   }
+
   &:hover {
-    box-shadow: 0px 1px 5px #00000030;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.19);
   }
+
   &.active {
-    @apply top-[136px] left-1/2 xl:top-20 w-fit px-2 -z-10;
+    top: 136px;
+    left: 50%;
+    width: fit-content;
+    padding-left: 8px;
+    padding-right: 8px;
+    z-index: -10;
     opacity: 0;
-    // visibility: hidden;
+    visibility: hidden;
+
+    @media (min-width: 1280px) {
+      top: 80px;
+    }
   }
+
   .button {
-    @apply h-12 px-5 hover:bg-background transition-all duration-200 ease-out;
+    height: 48px;
+    padding-left: 20px;
+    padding-right: 20px;
+    transition: all 200ms ease-out;
+
+    &:hover {
+      background-color: hsl(var(--background));
+    }
+
     &.active {
-      @apply h-16 px-24;
+      height: 64px;
+      padding-left: 96px;
+      padding-right: 96px;
     }
   }
   .button_search {
-    @apply transition-all duration-200 ease-out min-w-9 min-h-9 bg-primary text-primary-foreground rounded-full flex items-center justify-center;
+    transition: all 200ms ease-out;
+    min-width: 36px;
+    min-height: 36px;
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     &.active {
-      @apply min-w-12 min-h-12;
+      min-width: 48px;
+      min-height: 48px;
     }
   }
 }
 
 .search {
-  @apply absolute  left-[460px] -translate-x-1/2 transition-all duration-200 ease-out flex items-center flex-col justify-center gap-y-4 w-full;
-  @media (min-width: 1280px) {
-    @apply left-1/2;
-  }
+  position: absolute;
+  left: 460px;
+  transform: translateX(-50%);
+  transition: all 200ms ease-out;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
   top: -64px;
   opacity: 0;
   visibility: hidden;
+
+  @media (min-width: 1280px) {
+    left: 50%;
+  }
+
   &.active {
-    @apply top-14 z-20 max-w-4xl left-1/2 xl:top-0;
+    top: 56px;
+    z-index: 20;
+    max-width: 56rem;
+    left: 50%;
     opacity: 1;
     visibility: visible;
+
+    @media (min-width: 1280px) {
+      top: 0;
+    }
   }
 }
 

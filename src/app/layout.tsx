@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Footer from "@/components/footer";
 import { Poppins, DM_Serif_Text } from "next/font/google";
@@ -7,6 +7,13 @@ import styles from "./app.module.scss";
 export const metadata: Metadata = {
   title: "Airbnb Clone | Vacation rentals, cabins, beach houses & more",
   description: "Vacation rentals, cabins, beach houses, and more",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 };
 
 const poppins = Poppins({
