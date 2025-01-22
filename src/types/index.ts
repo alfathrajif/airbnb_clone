@@ -1,3 +1,11 @@
+export interface DestinationType {
+  location: string;
+  description: string;
+  icon: string;
+  textColor: string;
+  bgColor: string;
+}
+
 export interface CategoryType {
   name: string;
   icon: string;

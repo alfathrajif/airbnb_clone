@@ -51,6 +51,11 @@ import {
   Building,
   WarehouseIcon,
   Hotel,
+  Sun,
+  Heart,
+  LucideWaves,
+  Mountain,
+  Banknote,
 } from "lucide-react";
 
 export const iconMapping: Record<string, React.ComponentType> = {
@@ -106,4 +111,9 @@ export const iconMapping: Record<string, React.ComponentType> = {
   Building,
   WarehouseIcon,
   Hotel,
+  Sun,
+  Heart,
+  LucideWaves,
+  Mountain,
+  Banknote,
 };

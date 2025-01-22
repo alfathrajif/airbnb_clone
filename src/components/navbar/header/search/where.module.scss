@@ -1,0 +1,29 @@
+.content {
+  @apply absolute w-full max-w-md bg-background mt-3 px-1;
+  box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.15);
+  border-radius: 2rem;
+}
+
+.container {
+  @apply overflow-y-auto py-8 pl-6 pr-8;
+  height: 448px;
+}
+
+.container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.container::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 2rem 0;
+  border-radius: 8px;
+}
+
+.container::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground));
+  border-radius: 8px;
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

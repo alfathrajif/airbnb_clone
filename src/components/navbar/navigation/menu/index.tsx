@@ -1,6 +1,6 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./menu.module.scss";
 import { categories } from "@/constants";
 import { iconMapping } from "@/constants/icon-mapping";
@@ -78,7 +78,7 @@ export default function NavbarBottomMenu() {
                   ? `text-foreground cursor-default ${styles.categoryItemActive}`
                   : ""
               }`}>
-              <Icon />
+              {React.cloneElement(<Icon />, { strokeWidth: 1.5 })}
               <div className="text-sm font-semibold">{category.name}</div>
             </Button>
           );

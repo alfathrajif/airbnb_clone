@@ -1,0 +1,112 @@
+.search {
+  position: absolute;
+  left: 460px;
+  transform: translateX(-50%);
+  transition: all 200ms ease-out;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  top: -64px;
+  opacity: 0;
+  visibility: hidden;
+
+  @media (min-width: 1280px) {
+    left: 50%;
+  }
+
+  &.active {
+    top: 56px;
+    z-index: 20;
+    max-width: 56rem;
+    left: 50%;
+    opacity: 1;
+    visibility: visible;
+
+    @media (min-width: 1280px) {
+      top: 0;
+    }
+  }
+}
+
+.tabs {
+  @apply scale-75 transition-all duration-200 ease-out w-full max-w-4xl px-6;
+  opacity: 0;
+  visibility: hidden;
+  @media (min-width: 540px) {
+    @apply px-10;
+  }
+  @media (min-width: 1025px) {
+    @apply px-0;
+  }
+  &.active {
+    @apply scale-100;
+    opacity: 1;
+    visibility: visible;
+  }
+  &_content {
+    @apply border rounded-full shadow-md;
+    &.click {
+      @apply bg-accent shadow-none;
+    }
+    &_item {
+      width: 100%;
+      height: 4rem;
+      &.active {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.filterItem {
+  @apply relative w-full h-full flex items-center cursor-pointer px-6;
+  &::after {
+    content: "";
+    @apply absolute top-0 left-0 h-full w-full rounded-full hover:bg-muted-foreground/10;
+  }
+  &.click {
+    @apply bg-background rounded-full shadow-md z-10;
+    &::after {
+      @apply hover:bg-transparent;
+    }
+  }
+  &.hover {
+    &::after {
+      @apply hover:bg-transparent;
+    }
+  }
+  &.hoverNeighborLeft {
+    &::after {
+      @apply rounded-l-none;
+      width: calc(100% + 50px);
+      left: -50px;
+    }
+  }
+  &.hoverNeighborRight {
+    &::after {
+      @apply rounded-r-none;
+      width: calc(100% + 50px);
+      left: 0;
+    }
+  }
+}
+
+.searchButton {
+  position: absolute;
+  width: 3rem;
+  height: 3rem;
+  right: 0.5rem;
+  z-index: 10;
+
+  svg {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+
+  &.click {
+    width: 115px;
+  }
+}
