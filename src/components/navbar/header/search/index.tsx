@@ -4,7 +4,7 @@ import useNavbarStore from "@/hooks/use-navbar-store";
 import { RefObject } from "react";
 import { useShallow } from "zustand/shallow";
 import CheckinAndCheckout from "./checkin-and-checkout";
-import styles from "./search.module.scss";
+import styles from "./index.module.scss";
 import Where from "./where";
 import Who from "./who";
 import Date from "./date";

@@ -1,5 +1,5 @@
 import { useShallow } from "zustand/shallow";
-import stylesSearch from "./search.module.scss";
+import stylesIndex from "./index.module.scss";
 import stylesWhere from "./where.module.scss";
 import React from "react";
 import useNavbarStore from "@/hooks/use-navbar-store";
@@ -35,15 +35,15 @@ export default function Where({
 
   return (
     <div
-      className={`${stylesSearch.tabs_content_item} ${
-        (isDropSearch || isScrollOnStart) && stylesSearch.active
+      className={`${stylesIndex.tabs_content_item} ${
+        (isDropSearch || isScrollOnStart) && stylesIndex.active
       }`}>
       <label>
         <div
           onMouseEnter={() => setHover("where")}
           onMouseLeave={() => setHover("")}
-          className={`${stylesSearch.filterItem} ${click === "where" && stylesSearch.click} ${
-            (click === "checkin" || click === "date") && stylesSearch.hoverNeighborRight
+          className={`${stylesIndex.filterItem} ${click === "where" && stylesIndex.click} ${
+            (click === "checkin" || click === "date") && stylesIndex.hoverNeighborRight
           }`}>
           <div className="pl-3">
             <div className="text-[13px] font-medium">Where</div>

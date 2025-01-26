@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./search.module.scss";
+import styles from "./index.module.scss";
 import { Separator } from "@/components/ui/separator";
 import { useShallow } from "zustand/shallow";
 import useNavbarStore from "@/hooks/use-navbar-store";

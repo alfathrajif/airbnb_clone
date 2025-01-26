@@ -1,0 +1,23 @@
+.content {
+  @apply absolute w-full max-w-md bg-background mt-3 px-1 right-0;
+  box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.15);
+  border-radius: 2rem;
+}
+
+.item {
+  position: relative;
+  width: calc(100% - 48px);
+}
+.item.click {
+  width: calc(100% - 134px);
+}
+.item_title {
+  @apply font-medium;
+  font-size: 13px;
+}
+.item_value {
+  @apply text-foreground font-medium text-sm overflow-hidden whitespace-nowrap text-ellipsis;
+}
+.item_value.click {
+  @apply overflow-hidden whitespace-nowrap text-ellipsis;
+}
