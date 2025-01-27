@@ -59,8 +59,8 @@ export default function NavbarHeader() {
         target instanceof Element &&
         !target.closest("button")
       ) {
-        setHover("");
         setClick("");
+        setHover("");
       }
     };
 
@@ -73,7 +73,7 @@ export default function NavbarHeader() {
       window.removeEventListener("scroll", handleScroll);
       document.removeEventListener("click", handleClickOutside);
     };
-  }, [setClick, setHover, setIsDropSearch, setIsScrolled]);
+  }, [click, setClick, setHover, setIsDropSearch, setIsScrolled]);
 
   useEffect(() => {
     setIsScrolled(window.scrollY);

@@ -11,6 +11,10 @@ interface NavbarStoreState {
   setClick: (click: string) => void;
   activeTab: string;
   setActiveTab: (activeTab: string) => void;
+  tabsCheckInOut: string;
+  setTabsCheckInOut: (tabsCheckInOut: string) => void;
+  tabsFlexible: string;
+  setTabsFlexible: (tabsFlexible: string) => void;
 }
 
 const useNavbarStore = create<NavbarStoreState>((set) => ({
@@ -24,6 +28,10 @@ const useNavbarStore = create<NavbarStoreState>((set) => ({
   setClick: (click: string) => set({ click }),
   activeTab: "stays",
   setActiveTab: (activeTab: string) => set({ activeTab }),
+  tabsCheckInOut: "dates",
+  setTabsCheckInOut: (tabsCheckInOut: string) => set({ tabsCheckInOut }),
+  tabsFlexible: "weekend",
+  setTabsFlexible: (tabsFlexible: string) => set({ tabsFlexible }),
 }));
 
 export default useNavbarStore;

@@ -55,7 +55,8 @@ export default function Who({
         onMouseLeave={() => setHover("")}
         onClick={() => setClick("who")}
         className={`${stylesIndex.filterItem} ${click === "who" && stylesIndex.click} ${
-          ["checkout", "date"].includes(click) && stylesIndex.hoverNeighborLeft
+          (click === "checkout" || click === "date" || click === "when") &&
+          stylesIndex.hoverNeighborLeft
         } ${hover === "search" && stylesIndex.hover}`}>
         <div className="flex items-center justify-between w-full">
           <div className={`${stylesWho.item} ${click && stylesWho.click}`}>

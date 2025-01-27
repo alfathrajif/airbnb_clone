@@ -1,7 +1,13 @@
 .content {
-  @apply absolute w-full max-w-md bg-background mt-3 px-1 right-0;
+  @apply absolute w-full max-w-md bg-background mt-3 px-1 right-0 transition-all duration-200 ease-in-out;
   box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.15);
   border-radius: 2rem;
+  margin-right: 40px;
+}
+@media (min-width: 1025px) {
+  .content {
+    margin-right: 0;
+  }
 }
 
 .item {

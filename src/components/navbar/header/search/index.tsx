@@ -43,6 +43,8 @@ export default function Search({ tabsContentRef, isScrollOnStart }: SearchProps)
         <div
           ref={tabsContentRef}
           className={`${styles.tabs_content} ${click.trim() && styles.click}`}>
+          {/* stays */}
+
           <TabsContent value="stays">
             <div className="flex items-center">
               <Where isScrollOnStart={isScrollOnStart} tabsContent="stays" />
@@ -50,9 +52,11 @@ export default function Search({ tabsContentRef, isScrollOnStart }: SearchProps)
                 orientation="vertical"
                 className={`h-8 ${
                   (click === "where" ||
-                    click === "checkin" ||
                     hover === "where" ||
-                    hover === "checkin") &&
+                    click === "checkin" ||
+                    hover === "checkin" ||
+                    click === "when" ||
+                    hover === "when") &&
                   "bg-transparent"
                 }`}
               />
@@ -63,13 +67,17 @@ export default function Search({ tabsContentRef, isScrollOnStart }: SearchProps)
                   (click === "checkout" ||
                     hover === "checkout" ||
                     click === "who" ||
-                    hover === "who") &&
+                    hover === "who" ||
+                    click === "when" ||
+                    hover === "when") &&
                   "bg-transparent"
                 }`}
               />
               <Who isScrollOnStart={isScrollOnStart} tabsContent="stays" />
             </div>
           </TabsContent>
+
+          {/* experiences */}
           <TabsContent value="experiences">
             <div className="flex items-center">
               <Where isScrollOnStart={isScrollOnStart} tabsContent="experiences" />
@@ -87,7 +95,12 @@ export default function Search({ tabsContentRef, isScrollOnStart }: SearchProps)
               <Separator
                 orientation="vertical"
                 className={`h-8 ${
-                  (click === "date" || hover === "date" || click === "who" || hover === "who") &&
+                  (click === "date" ||
+                    hover === "date" ||
+                    click === "when" ||
+                    hover === "when" ||
+                    click === "who" ||
+                    hover === "who") &&
                   "bg-transparent"
                 }`}
               />

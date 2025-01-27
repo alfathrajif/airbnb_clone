@@ -43,7 +43,8 @@ export default function Where({
           onMouseEnter={() => setHover("where")}
           onMouseLeave={() => setHover("")}
           className={`${stylesIndex.filterItem} ${click === "where" && stylesIndex.click} ${
-            (click === "checkin" || click === "date") && stylesIndex.hoverNeighborRight
+            (click === "checkin" || click === "date" || click === "when") &&
+            stylesIndex.hoverNeighborRight
           }`}>
           <div className="pl-3">
             <div className="text-[13px] font-medium">Where</div>
