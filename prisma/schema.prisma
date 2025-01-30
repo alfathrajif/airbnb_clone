@@ -1,0 +1,116 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id              String    @id @default(cuid())
+  name            String
+  email           String    @unique
+  phone           String?   @unique
+  password        String
+  profile_picture String // url
+  location        String?
+  role            Role      @default(GUEST)
+  created_at      DateTime  @default(now())
+  updated_at      DateTime  @updatedAt
+  listings        Listing[]
+
+  @@map("users")
+}
+
+model Listing {
+  id                  String             @id @default(cuid())
+  host                User               @relation(fields: [host_id], references: [id])
+  host_id             String
+  title               String
+  description         String
+  location            String // city, country
+  latitude            Float
+  longitude           Float
+  price_per_night     Float
+  max_guests          Int
+  bedrooms            Int
+  bathrooms           Int
+  listing_photos      ListingPhotos[]
+  listing_amenities   ListingAmenity[]
+  listing_house_rules ListingHouseRule[]
+  cancellation_policy String?
+  check_in_time       DateTime
+  check_out_time      DateTime
+  created_at          DateTime           @default(now())
+  updated_at          DateTime           @updatedAt
+
+  @@map("listings")
+}
+
+model ListingPhotos {
+  id         String   @id @default(cuid())
+  photo_url  String
+  listing    Listing  @relation(fields: [listing_id], references: [id])
+  listing_id String
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("listing_photos")
+}
+
+model Amenity {
+  id                String           @id @default(cuid())
+  name              String
+  icon              String
+  type              String
+  created_at        DateTime         @default(now())
+  updated_at        DateTime         @updatedAt
+  listing_amenities ListingAmenity[]
+
+  @@map("amenities")
+}
+
+model ListingAmenity {
+  id         String   @id @default(cuid())
+  listing    Listing  @relation(fields: [listing_id], references: [id])
+  listing_id String
+  amenity    Amenity  @relation(fields: [amenity_id], references: [id])
+  amenity_id String
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("listing_amenities")
+}
+
+model HouseRule {
+  id                  String             @id @default(cuid())
+  title               String
+  description         String?
+  icon                String
+  type                String
+  created_at          DateTime           @default(now())
+  updated_at          DateTime           @updatedAt
+  listing_house_rules ListingHouseRule[]
+
+  @@map("house_rules")
+}
+
+model ListingHouseRule {
+  id            String    @id @default(cuid())
+  listing       Listing   @relation(fields: [listing_id], references: [id])
+  listing_id    String
+  house_rule    HouseRule @relation(fields: [house_rule_id], references: [id])
+  house_rule_id String
+  created_at    DateTime  @default(now())
+  updated_at    DateTime  @updatedAt
+
+  @@map("listing_house_rules")
+}
+
+enum Role {
+  ADMIN
+  HOST
+  GUEST
+}

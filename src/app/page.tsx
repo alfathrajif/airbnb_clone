@@ -1,11 +1,14 @@
 import Navbar from "@/components/navbar";
-import Products from "@/components/products";
+import Listings from "@/components/listings";
+import { getListings } from "@/actions/listings";
 
-export default function Home() {
+export default async function Home() {
+  const listings = await getListings();
+
   return (
     <>
       <Navbar />
-      <Products />
+      <Listings listings={listings} />
     </>
   );
 }

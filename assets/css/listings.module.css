@@ -8,11 +8,11 @@
   @apply grid grid-cols-1 gap-6;
 }
 
-.product {
-  @apply w-full;
-  &__image {
-    @apply rounded-xl bg-primary overflow-hidden;
-  }
+.listing {
+  @apply relative w-full;
+}
+.listing__photo {
+  @apply rounded-xl bg-primary overflow-hidden;
 }
 
 @media (min-width: 540px) {
@@ -23,13 +23,11 @@
     @apply grid-cols-2 gap-6;
   }
 }
-
 @media (min-width: 768px) {
   .wrapper {
     @apply grid-cols-3 gap-6;
   }
 }
-
 @media (min-width: 1025px) {
   .container {
     @apply px-20;
@@ -38,7 +36,6 @@
     @apply grid-cols-4 gap-6;
   }
 }
-
 @media (min-width: 1580px) {
   .wrapper {
     @apply grid-cols-6;

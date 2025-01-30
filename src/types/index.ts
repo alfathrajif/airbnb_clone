@@ -33,3 +33,48 @@ export interface PropertyTypeType {
   name: string;
   icon: string;
 }
+
+export interface UserType {
+  id: string;
+  name: string;
+  email: string;
+  image: string;
+  phone?: string;
+  profile_picture: string;
+  location: string;
+  role: string;
+  created_at: Date;
+  updated_at: Date;
+  listings: ListingType[];
+}
+
+export interface ListingType {
+  id: string;
+  host: UserType;
+  host_id: string;
+  title: string;
+  description: string;
+  location: string;
+  latitude: number;
+  longitude: number;
+  price_per_night: number;
+  max_guests: number;
+  bedrooms: number;
+  listing_photos: ListingPhotoType[];
+  bathrooms: number;
+  // amenities: AmenityType[];
+  // house_rules: HouseRuleType[];
+  cancellation_policy?: string;
+  check_in_time: Date;
+  check_out_time: Date;
+  created_at: Date;
+  updated_at: Date;
+}
+
+export interface ListingPhotoType {
+  id: string;
+  photo_url: string;
+  listing_id: string;
+  created_at: Date;
+  updated_at: Date;
+}

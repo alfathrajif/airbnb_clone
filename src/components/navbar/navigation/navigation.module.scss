@@ -1,5 +1,5 @@
 .navigation {
-  @apply sticky overflow-hidden bg-background px-20 flex items-end;
+  @apply sticky z-10 overflow-hidden bg-background px-20 flex items-end;
   top: calc(80px + 1px);
   height: 79px;
 }
