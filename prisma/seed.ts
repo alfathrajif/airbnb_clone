@@ -42,7 +42,7 @@ async function main() {
   }
 
   const listings = await Promise.all(
-    Array.from({ length: 10 }).map(() =>
+    Array.from({ length: 6 * 4 }).map(() =>
       prisma.listing.create({
         data: {
           host: {

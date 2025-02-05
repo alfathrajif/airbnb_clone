@@ -9,9 +9,11 @@
 }
 
 .listing {
-  @apply relative w-full;
+  @apply w-full;
   &__photo {
-    @apply rounded-xl bg-primary overflow-hidden;
+    @apply rounded-xl bg-accent overflow-hidden relative;
+    width: 100%;
+    height: 80vw;
   }
 }
 
@@ -22,11 +24,21 @@
   .wrapper {
     @apply grid-cols-2 gap-6;
   }
+  .listing {
+    &__photo {
+      height: calc(80vw / 2);
+    }
+  }
 }
 
 @media (min-width: 768px) {
   .wrapper {
     @apply grid-cols-3 gap-6;
+  }
+  .listing {
+    &__photo {
+      height: calc(80vw / 3);
+    }
   }
 }
 
@@ -37,10 +49,20 @@
   .wrapper {
     @apply grid-cols-4 gap-6;
   }
+  .listing {
+    &__photo {
+      height: calc(80vw / 4);
+    }
+  }
 }
 
 @media (min-width: 1580px) {
   .wrapper {
     @apply grid-cols-6;
+  }
+  .listing {
+    &__photo {
+      height: calc(80vw / 6);
+    }
   }
 }
